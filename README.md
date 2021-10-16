@@ -22,3 +22,24 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Rough DB Schema
+
+property
+========
+- number
+- address
+
+bill
+====
+- start_date
+- end_date
+- amount
+- property_id
+
+tenant
+======
+- name
+- move_in_date
+- move_out_date
+- property_id
