@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :abbreviation %>
-    <%= form.text_field :abbreviation %>
+  <div class="mb-3">
+    <%= form.label :abbreviation, class: "small mb-1" %>
+    <%= form.text_field :abbreviation, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div class="mb-3">
+    <%= form.label :address, class: "small mb-1" %>
+    <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to 'Cancel', properties_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
