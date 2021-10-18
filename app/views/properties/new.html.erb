@@ -1,5 +1,15 @@
-<h1>New Property</h1>
-
-<%= render 'form', property: @property %>
-
-<%= link_to 'Back', properties_path %>
+<!-- From https://startbootstrap.com/previews/sb-admin-pro -->
+<div class="container px-4 mt-4">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card mb-4">
+        <div class="card-header">
+          New Property
+        </div>
+        <div class="card-body">
+          <%= render 'form', property: @property %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
