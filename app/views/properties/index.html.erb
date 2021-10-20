@@ -26,6 +26,7 @@
                   <div class="accordion-body">
                     <%= link_to "Edit", edit_property_path(property) %>
                     <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= render 'form', property: property %>
                   </div>
                 </div>
               </div>
@@ -39,7 +40,8 @@
               </h2>
               <div id="collapse-property-new" class="accordion-collapse collapse" aria-labelledby="heading-property-new">
                 <div class="accordion-body">
-                  TODO: New Property Form
+                  <p>Below fill out the details of your new property:</p>
+                  <%= render 'form', property: @property %>
                 </div>
               </div>
             </div>
