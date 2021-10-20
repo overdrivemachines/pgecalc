@@ -1,29 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="container px-4">
+  <div class="row">
+    <div class="col-lg-8">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to "Settings", root_path, class: "nav-link active", "aria-current": "page" %>
+        </li>
+        <% @properties.each do |property| %>
+          <li class="nav-item">
+            <%= link_to property.abbreviation, property, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="container">
+        <div class="row">
+          <h3 class="mt-5 mb-3">Property Settings</h3>
+          <div class="accordion" id="accordionProperty">
+            <% @properties.each do |property| %>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-property-<%= property.id %>">
+                  <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-property-<%= property.id %>" aria-expanded="false" aria-controls="collapse-property-<%= property.id %>">
+                    <%= property.address %>
+                  </div>
+                </h2>
+                <div id="collapse-property-<%= property.id %>" class="accordion-collapse collapse" aria-labelledby="heading-property-<%= property.id %>">
+                  <div class="accordion-body">
+                    <%= link_to "Edit", edit_property_path(property) %>
+                    <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
 
-<h1>Properties</h1>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-property-new">
+                <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-property-new" aria-expanded="false" aria-controls="collapse-property-new">
+                  Add New Property
+                </div>
+              </h2>
+              <div id="collapse-property-new" class="accordion-collapse collapse" aria-labelledby="heading-property-new">
+                <div class="accordion-body">
+                  TODO: New Property Form
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Abbreviation</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="row">
+          <h3 class="mt-5 mb-3">Tenant Settings</h3>
+          <div>TODO: Show list of tenants</div>
+        </div>
+      </div>
 
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.abbreviation %></td>
-        <td><%= property.address %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Property', new_property_path %>
+    </div>
+  </div>
+</div>
