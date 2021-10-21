@@ -1,0 +1,18 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading-property-<%= property.id %>">
+    <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-property-<%= property.id %>" aria-expanded="false" aria-controls="collapse-property-<%= property.id %>">
+      <%= property.address %>
+    </div>
+  </h2>
+  <div id="collapse-property-<%= property.id %>" class="accordion-collapse collapse" aria-labelledby="heading-property-<%= property.id %>">
+    <div class="accordion-body">
+      <div class="float-end">
+        <%= link_to 'Delete Property', property, method: :delete, class: "btn btn-danger mb-3", data: { confirm: 'Are you sure?' } %>
+      </div>
+      <br>
+      <%= render 'form', property: property %>
+
+      <h5 class="mt-4">List of Tenants at <%= property.abbreviation %></h5>
+    </div>
+  </div>
+</div>
