@@ -24,8 +24,10 @@
                 </h2>
                 <div id="collapse-property-<%= property.id %>" class="accordion-collapse collapse" aria-labelledby="heading-property-<%= property.id %>">
                   <div class="accordion-body">
-                    <%= link_to "Edit", edit_property_path(property) %>
-                    <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <div class="float-end">
+                      <%= link_to 'Delete Property', property, method: :delete, class: "btn btn-danger mb-3", data: { confirm: 'Are you sure?' } %>
+                    </div>
+                    <br>
                     <%= render 'form', property: property %>
                   </div>
                 </div>
