@@ -4,6 +4,9 @@
 // that code so it'll be compiled.
 
 require.context("../images", true)
+var jQuery = require("jquery")
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
