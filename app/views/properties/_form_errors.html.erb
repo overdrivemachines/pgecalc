@@ -1,0 +1,9 @@
+<div class="error_explanation mb-3">
+  <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+  <ul>
+    <% property.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
