@@ -23,15 +23,22 @@ class PropertiesController < ApplicationController
   def create
     # TODO
     @property = Property.new(property_params)
+    @property.save
+    respond_to :js
+
+    if !@property.errors.any?
+      redirect_to properties_url, notice: 'Property was successfully created.'
+    end
+
     # flash[:notice] = "Property was successfully created." if @property.save
     # redirect_to properties_url
     # respond_with(@property)
-    if @property.save
-      redirect_to properties_url, notice: 'Property was successfully created.'
-    else
-      @properties = Property.all
-      render :index
-    end
+    # if @property.save
+    #   redirect_to properties_url, notice: 'Property was successfully created.'
+    # else
+    #   @properties = Property.all
+    #   render :index
+    # end
   end
 
   # PATCH/PUT /properties/1
