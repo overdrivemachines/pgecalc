@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_213809) do
+ActiveRecord::Schema.define(version: 2021_10_22_161319) do
 
   create_table "bills", force: :cascade do |t|
     t.date "start_date"
@@ -30,5 +30,16 @@ ActiveRecord::Schema.define(version: 2021_10_16_213809) do
     t.index ["abbreviation"], name: "index_properties_on_abbreviation", unique: true
   end
 
+  create_table "tenants", force: :cascade do |t|
+    t.string "name", limit: 30
+    t.date "move_in_date"
+    t.date "move_out_date"
+    t.integer "property_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_tenants_on_property_id"
+  end
+
   add_foreign_key "bills", "properties"
+  add_foreign_key "tenants", "properties"
 end
