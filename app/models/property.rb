@@ -16,5 +16,6 @@ class Property < ApplicationRecord
   validates :abbreviation, presence: true, uniqueness: true, length: { minimum: 1 }
   validates :address, presence: true, length: { minimum: 5 }
 
-  has_many :bills
+  has_many :bills, dependent: :destroy
+  has_many :tenants, dependent: :destroy
 end
