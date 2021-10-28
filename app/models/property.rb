@@ -18,4 +18,14 @@ class Property < ApplicationRecord
 
   has_many :bills, dependent: :destroy
   has_many :tenants, dependent: :destroy
+
+  # Remove whitespaces at the beginning and end of abbreviation
+  def abbreviation=(value)
+    super(value.squish)
+  end
+
+  # Remove whitespaces at the beginning and end of address
+  def address=(value)
+    super(value.squish)
+  end
 end

@@ -26,6 +26,11 @@ class Tenant < ApplicationRecord
 
   belongs_to :property
 
+  # Prevent consecutive spaces in tenant names
+  def name=(value)
+    super(value.squish)
+  end
+
   def move_out_date_is_greater_than_move_in_date
     if move_in_date.present? && move_out_date.present? && move_out_date < move_in_date
       errors.add(:move_out_date, "can't be before move in date")
