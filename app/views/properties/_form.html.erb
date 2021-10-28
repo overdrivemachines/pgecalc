@@ -22,9 +22,9 @@
     <!-- Cancel button: discards data, collapses accordion.
     Different data-bs-target for new vs edit form. -->
     <% if property.id.nil? %>
-      <%= button_tag "Cancel", type: :reset, class: "btn btn-secondary ms-1", "data-bs-toggle": "collapse", "data-bs-target": "#collapse-property-new", "aria-expanded": "false", "aria-controls": "collapse-property-new" %>
+      <%= button_tag "Cancel", type: :reset, class: "btn btn-secondary ms-1", "data-bs-toggle": "collapse", "data-bs-target": "#collapse-property-new", "aria-expanded": "false", "aria-controls": "collapse-property-new", onclick: "$('#errors-container-property-new').empty()" %>
     <% else %>
-      <%= button_tag "Cancel", type: :reset, class: "btn btn-secondary ms-1", "data-bs-toggle": "collapse", "data-bs-target": "#collapse-property-#{property.id}", "aria-expanded": "false", "aria-controls": "collapse-property-#{property.id}" %>
+      <%= button_tag "Cancel", type: :reset, class: "btn btn-secondary ms-1", "data-bs-toggle": "collapse", "data-bs-target": "#collapse-property-#{property.id}", "aria-expanded": "false", "aria-controls": "collapse-property-#{property.id}", onclick: "$('#errors-container-property-#{property.id}').empty()" %>
     <% end %>
   </div>
 <% end %>
