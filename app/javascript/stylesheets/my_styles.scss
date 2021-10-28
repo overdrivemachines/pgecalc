@@ -1,0 +1,32 @@
+.error_explanation {
+  max-width: 450px;
+  // border: 2px solid red;
+  // Fixed border issue:
+  // https://stackoverflow.com/questions/69748186/border-adds-padding-to-div-with-box-sizing-border-box
+  outline: red solid 2px;
+
+  // padding: 0 7px;
+  // margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    // text-align: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    // margin-top: -7px;
+    // margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul {
+    margin-bottom: 0.5rem;
+    padding-top: 0.75em;
+    padding-bottom: 1em;
+    li {
+      font-size: 12px;
+      list-style: square; }
+  }
+}
