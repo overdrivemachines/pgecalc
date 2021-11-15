@@ -8,8 +8,16 @@
 
 p1 = Property.create(abbreviation: "407", address: "407 W 9th St, Chico, CA 95928")
 p2 = Property.create(abbreviation: "341", address: "341 W 9th St, Chico, CA 95928")
+p2 = Property.create(abbreviation: Faker::Number.number(digits: 10).to_s, address: Faker::Address.full_address)
+p2 = Property.create(abbreviation: Faker::Number.number(digits: 10).to_s, address: Faker::Address.full_address)
+p2 = Property.create(abbreviation: Faker::Number.number(digits: 10).to_s, address: Faker::Address.full_address)
+p2 = Property.create(abbreviation: Faker::Number.number(digits: 10).to_s, address: Faker::Address.full_address)
 
-t1 = Tenant.create(name: "John Smith", move_in_date: "09/01/2016", property_id: Property.first.id)
-t2 = Tenant.create(name: "Jane Smith", move_in_date: "05/01/2017", property_id: Property.first.id)
+Property.all.each do |property|
+  for i in 1..rand(2..7)
+    Tenant.create(name: Faker::Name.name, move_in_date: Faker::Date.backward(days: 1000), property_id: property.id)
+  end
+end
+
 
 # b1 = Bill.create(amount: 32, start_date: , end_date: , property_id: p1.id)
