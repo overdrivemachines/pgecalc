@@ -12,6 +12,8 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
+    @properties = Property.all
+    @tenants = @property.tenants
   end
 
   # POST /properties
@@ -38,7 +40,7 @@ class PropertiesController < ApplicationController
 
     # If there are no errors saving, show the index page
     if !@property.errors.any?
-      redirect_to properties_url, notice: 'Property was successfully created.'
+      redirect_to properties_url, notice: 'Property was successfully updated.'
     end
   end
 

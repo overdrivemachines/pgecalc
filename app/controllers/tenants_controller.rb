@@ -53,6 +53,6 @@ class TenantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tenant_params
-      params.require(:tenant).permit(:name, :start_date, :end_date, :property_id)
+      params.require(:tenant).permit(:name, :move_in_date, :move_out_date, :property_id)
     end
 end
