@@ -15,6 +15,7 @@ import "channels"
 
 import "bootstrap"
 import "@popperjs/core"
+import "datatables.net-bs5"
 import "../src/my_script.js"
 
 Rails.start()

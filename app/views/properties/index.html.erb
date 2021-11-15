@@ -5,6 +5,7 @@
         <li class="nav-item">
           <%= link_to "Settings", root_path, class: "nav-link active", "aria-current": "page" %>
         </li>
+        <!-- Displaying tabs for all properties -->
         <% @properties.each do |property| %>
           <li class="nav-item">
             <%= link_to property.abbreviation, property, class: "nav-link" %>
@@ -14,12 +15,15 @@
       <div class="container">
         <div class="row">
           <h3 class="mt-5 mb-3">Property Settings</h3>
+          <!-- Displaying all properties in a Bootstrap Accordian -->
           <div class="accordion" id="accordionProperty">
+            <!-- Rendering the 'property' partial for each property -->
             <% @properties.each do |property| %>
               <%= render 'property', property: property %>
             <% end %>
 
             <div class="accordion-item">
+              <!-- Accordian for New Property -->
               <h2 class="accordion-header" id="heading-property-new">
                 <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-property-new" aria-expanded="false" aria-controls="collapse-property-new">
                   Add New Property
