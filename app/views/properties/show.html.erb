@@ -1,14 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container px-4">
+  <div class="row">
+    <div class="col-lg-8">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to "Settings", root_path, class: "nav-link" %>
+        </li>
+        <!-- Displaying tabs for all properties -->
+        <% @properties.each do |property| %>
+          <li class="nav-item">
+            <!-- Add .active class for current property -->
+            <% if @property.id == property.id %>
+              <%= link_to property.abbreviation, property, class: "nav-link active", "aria-current": "page" %>
+            <% else %>
+              <%= link_to property.abbreviation, property, class: "nav-link" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="container">
+        <div class="row">
+          <h5 class="mt-5 mb-3"><%= @property.address %></h5>
+          <p><%= pluralize(@tenants.count, "tenant") %> total</p>
+          <p>List of tenants</p>
+          <table id="">
+            <% @tenants.each do |tenant| %>
+              <p><%= tenant.name %></p>
+            <% end %>
+          </table>
+        </div>
+        <div class="row">
 
-<p>
-  <strong>Abbreviation:</strong>
-  <%= @property.abbreviation %>
-</p>
+        </div>
+      </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+    </div>
+  </div>
+</div>
