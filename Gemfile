@@ -23,6 +23,7 @@ group :development do
 
   gem 'annotate'
   gem 'rails-erd' # Generate Entity-Relationship Diagrams
+  gem 'faker' # Generates fake data for seeds.rb
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
