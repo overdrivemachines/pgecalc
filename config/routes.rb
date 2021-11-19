@@ -28,17 +28,11 @@
 Rails.application.routes.draw do
 
   get "properties/:abbreviation", to: "properties#show", as: :property
-  # patch "properties/:abbreviation", to: "photos#update"
-  # put "properties/:abbreviation", to: "photos#update"
 
-
-  resources :properties, only: [:index, :create, :destroy, :update, :delete] do
-  # resources :properties do
+  resources :properties, except: [:new, :show, :edit] do
     resources :tenants
     resources :bills
   end
-
-
 
   root "properties#index"
 end
